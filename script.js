@@ -1,5 +1,7 @@
+const container = document.querySelector('.container');
+let square;
+
 function createGrid(size) {
-    const container = document.querySelector('.container');
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
@@ -8,7 +10,7 @@ function createGrid(size) {
 
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
-            const square = document.createElement('div');
+            square = document.createElement('div');
             square.style.border = "1px solid black";
             square.addEventListener('mouseover', changeColor);
             container.appendChild(square);
@@ -22,8 +24,8 @@ function changeColor() {
     this.style.backgroundColor = "#175a84";
 }
 
-const button = document.querySelector('button');
-button.addEventListener('click', changeSize);
+const sizeBtn = document.querySelector('.size');
+sizeBtn.addEventListener('click', changeSize);
 
 function changeSize() {
     const size = prompt('Size? Should be at least 2, but not bigger than 100');
@@ -32,4 +34,14 @@ function changeSize() {
     } else {
         console.log("The size should be at least 2 and not bigger than 100");
     }
+}
+
+const resetBtn = document.querySelector('.reset');
+resetBtn.addEventListener('click', resetGrid);
+
+function resetGrid() {
+    const squares = document.querySelectorAll('div');
+    squares.forEach(squareDiv => {
+        squareDiv.style.backgroundColor = "white";
+    });
 }
