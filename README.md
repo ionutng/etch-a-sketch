@@ -1,2 +1,2 @@
 # etch-a-sketch
-https://maahesi.github.io/etch-a-sketch/
+https://ionutng.github.io/etch-a-sketch/
